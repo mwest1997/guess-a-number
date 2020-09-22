@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="matth"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2020-09-22 11:05:58 AM"/>
+        <attribute name="created" value="bWF0dGg7REVTS1RPUC1GOUFKQUFJOzIwMjAtMDktMjI7MTA6MDc6MjggQU07Mjg1OA=="/>
+        <attribute name="edited" value="bWF0dGg7REVTS1RPUC1GOUFKQUFJOzIwMjAtMDktMjI7MTE6MDU6NTggQU07MzsyOTcw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="playing" type="Boolean" array="False" size=""/>
+            <assign variable="playing" expression="true"/>
+            <while expression="playing">
+                <call expression="play()"/>
+                <output expression="&quot;Congratulations, do you want to play again?  Y or N&quot;" newline="True"/>
+                <declare name="userChoice" type="String" array="False" size=""/>
+                <input variable="userChoice"/>
+                <if expression="userChoice == &quot;N&quot;">
+                    <then>
+                        <assign variable="playing" expression="false"/>
+                    </then>
+                    <else/>
+                </if>
+            </while>
+        </body>
+    </function>
+    <function name="play" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="successful" type="Boolean" array="False" size=""/>
+            <declare name="randomNumber" type="Integer" array="False" size=""/>
+            <assign variable="randomNumber" expression="Random(100) + 1"/>
+            <do expression="!successful">
+                <assign variable="successful" expression="false"/>
+                <declare name="guess" type="Integer" array="False" size=""/>
+                <output expression="&quot;Guess a number from 1 to 100&quot;" newline="True"/>
+                <input variable="guess"/>
+                <if expression="guess == randomNumber">
+                    <then>
+                        <declare name="userChoice" type="String" array="False" size=""/>
+                        <output expression="&quot;Congratulations&quot;" newline="True"/>
+                        <assign variable="successful" expression="true"/>
+                    </then>
+                    <else>
+                        <if expression="guess &gt; randomNumber">
+                            <then>
+                                <output expression="&quot;Too high, guess again.&quot;" newline="True"/>
+                            </then>
+                            <else>
+                                <output expression="&quot;Too low, guess again.&quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+</flowgorithm>
